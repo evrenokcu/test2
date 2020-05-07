@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.3.0" releaseDate="2016-03-03" copyright="Copyright 2016, ifm electronic gmbh" />
+  <Language xml:lang="es">
+    <Text id="TI_ProductName0" value="O6S305" />
+    <Text id="TI_ProductDescr0" value="A través de haz transmisor del sensor, 0...10 m, DC" />
+    <Text id="TI_ProductName1" value="O6S314" />
+    <Text id="TI_ProductDescr1" value="A través de haz transmisor del sensor, 0...10 m, DC" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="O6" />
+    <Text id="TI_DeviceName" value="O6S305 / O6S314" />
+    <Text id="TI_SysCmd240_Name" value="Test del sistema IO-Link 1.1 comando 240, el evento 8DFE ocurre" />
+    <Text id="TI_SysCmd241_Name" value="Test del sistema IO-Link 1.1 comando 241, el evento 8DFE desaparece" />
+    <Text id="TI_SysCmd242_Name" value="Test del sistema IO-Link 1.1 comando 242, el evento 8DFF ocurre" />
+    <Text id="TI_SysCmd243_Name" value="Test del sistema IO-Link 1.1 comando 243, el evento 8DFF desaparece" />
+    <Text id="TI_Transmitter_Configuration_SV_0" value="Off" />
+    <Text id="TI_Transmitter_Configuration_SV_1" value="On" />
+    <Text id="TI_Transmitter_Configuration_Description" value="Configuración del emisor óptico" />
+    <Text id="TI_Number_Of_Powercycles_Description" value="Número de procesos de conmutación" />
+    <Text id="TI_Operating_Hours_Description" value="Horas de funcionamiento" />
+    <Text id="TI_M_Signal_Name" value="Señal" />
+    <Text id="TI_M_Setup_Name" value="Configuraciones básicas " />
+    <Text id="TI_M_Diagnosis_Name" value="Diagnóstico " />
+  </Language>
+  <Stamp crc="1043413577"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

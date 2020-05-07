@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.3.0" releaseDate="2016-03-03" copyright="Copyright 2016, ifm electronic gmbh" />
+  <Language xml:lang="it">
+    <Text id="TI_ProductName0" value="O6S305" />
+    <Text id="TI_ProductDescr0" value="A sbarramento trasmettitore sensore, 0...10 m, DC" />
+    <Text id="TI_ProductName1" value="O6S314" />
+    <Text id="TI_ProductDescr1" value="A sbarramento trasmettitore sensore, 0...10 m, DC" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="O6" />
+    <Text id="TI_DeviceName" value="O6S305 / O6S314" />
+    <Text id="TI_SysCmd240_Name" value="Test di sistema IO-Link 1.1 comando 240, si verifica evento 8DFE" />
+    <Text id="TI_SysCmd241_Name" value="Test di sistema IO-Link 1.1 comando 241, evento 8DFE scompare" />
+    <Text id="TI_SysCmd242_Name" value="Test di sistema IO-Link 1.1 comando 242, si verifica evento 8DFE" />
+    <Text id="TI_SysCmd243_Name" value="Test di sistema IO-Link 1.1 comando 243, evento 8DFE scompare" />
+    <Text id="TI_Transmitter_Configuration_SV_0" value="Off" />
+    <Text id="TI_Transmitter_Configuration_SV_1" value="On" />
+    <Text id="TI_Transmitter_Configuration_Description" value="Configurazione dell'emettitore ottico" />
+    <Text id="TI_Number_Of_Powercycles_Description" value="Numero delle sequenze di attivazione" />
+    <Text id="TI_Operating_Hours_Description" value="Ore operative" />
+    <Text id="TI_M_Signal_Name" value="Segnale" />
+    <Text id="TI_M_Setup_Name" value="Impostazioni di base " />
+    <Text id="TI_M_Diagnosis_Name" value="Diagnosi " />
+  </Language>
+  <Stamp crc="2491428441"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

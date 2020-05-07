@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.2.12.68157" releaseDate="2016-03-02" copyright="Copyright 2016, Builder: 2.5.2.6, Time: 07:45:11" />
+  <Language xml:lang="pt">
+    <Text id="TI_ProductName0" value="LX0017" />
+    <Text id="TI_ProductDescr0" value="Sensor de nível eletrônico, 0...100 %, G 1/2''" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="LMT" />
+    <Text id="TI_DeviceName" value="LX0017" />
+    <Text id="TI_SysCmd255_Name" value="Comando sem efeito, apenas para uso interno" />
+    <Text id="TI_SysCmd240_Name" value="IO-Link 1.1 teste do sistema comando 240, evento 8DFE aparece" />
+    <Text id="TI_SysCmd241_Name" value="IO-Link 1.1 teste do sistema comando 241, evento 8DFE desaparece" />
+    <Text id="TI_SysCmd242_Name" value="IO-Link 1.1 teste do sistema comando 242, evento 8DFF aparece" />
+    <Text id="TI_SysCmd243_Name" value="IO-Link 1.1 teste do sistema comando 243, evento 8DFF desaparece" />
+    <Text id="TI_Message_SV_253" value="[rES] Reset para as configurações de fábrica" />
+    <Text id="TI_Message_SV_1" value="[tSP1] Teach do ponto de comutação 1" />
+    <Text id="TI_Message_SV_2" value="[tSP2] Teach do ponto de comutação 2" />
+    <Text id="TI_Message_Name" value="Comandos" />
+    <Text id="TI_Message_Descr" value="Executa uma ação para o sensor" />
+    <Text id="TI_SP1_Name" value="SP1" />
+    <Text id="TI_SP1_Description" value="Ponto de comutação 1, [SP1] tem de ser superior a [rP1]. Tenha em conta o [rP1] atual. Se o valor [SP1] for configurado abaixo de [rP1], isso será rejeitado." />
+    <Text id="TI_rP1_Name" value="rP1" />
+    <Text id="TI_rP1_Description" value="Ponto de desligamento 1, [rP1] tem de ser inferior ao [SP1]. Tenha em conta o [SP1] atual. Se o valor [rP1] for configurado acima de [SP1], isso será rejeitado." />
+    <Text id="TI_SP2_Name" value="SP2" />
+    <Text id="TI_SP2_Description" value="Ponto de comutação 2, [SP2] tem de ser superior a [rP2]. Tenha em conta o [rP2] atual. Se o valor [SP2] for configurado abaixo de [rP2], isso será rejeitado." />
+    <Text id="TI_rP2_Name" value="rP2" />
+    <Text id="TI_rP2_Description" value="Ponto de desligamento 2, [rP2] tem de ser inferior ao [SP2]. Tenha em conta o [SP2] atual. Se o valor [rP2] for configurado acima de [SP2], isso será rejeitado." />
+    <Text id="TI_ou2_Name" value="ou2" />
+    <Text id="TI_ou2_Description" value="Configuração da saída [OUT 2]" />
+    <Text id="TI_ou2_SV_0" value="Hno / Função de histerese, normalmente aberto" />
+    <Text id="TI_ou2_SV_1" value="Hnc / Função de histerese, normalmente fechado" />
+    <Text id="TI_ou2_SV_2" value="Fno / Função de janela, normalmente aberto" />
+    <Text id="TI_ou2_SV_3" value="Fnc / Função de janela, normalmente fechado" />
+    <Text id="TI_ou1_Name" value="ou1" />
+    <Text id="TI_ou1_Description" value="Configuração da saída [OUT 1]" />
+    <Text id="TI_ou1_SV_0" value="Hno / Função de histerese, normalmente aberto" />
+    <Text id="TI_ou1_SV_1" value="Hnc / Função de histerese, normalmente fechado" />
+    <Text id="TI_ou1_SV_2" value="Fno / Função de janela, normalmente aberto" />
+    <Text id="TI_ou1_SV_3" value="Fnc / Função de janela, normalmente fechado" />
+    <Text id="TI_ou1_SV_4" value="tch / Entrada teach" />
+    <Text id="TI_VDMA-dr1_Name" value="dr1" />
+    <Text id="TI_VDMA-dr1_Description" value="Retardo de reset para [OUT 1]" />
+    <Text id="TI_VDMA-dr2_Name" value="dr2" />
+    <Text id="TI_VDMA-dr2_Description" value="Retardo de reset para [OUT 2]" />
+    <Text id="TI_FOU1_Name" value="FOU1" />
+    <Text id="TI_FOU1_Description" value="Reação de [OUT 1] em caso de erro" />
+    <Text id="TI_FOU1_SV_0" value="OFF" />
+    <Text id="TI_FOU1_SV_1" value="On" />
+    <Text id="TI_FOU2_Name" value="FOU2" />
+    <Text id="TI_FOU2_Description" value="Reação de [OUT 2] em caso de erro" />
+    <Text id="TI_FOU2_SV_0" value="OFF" />
+    <Text id="TI_FOU2_SV_1" value="On" />
+    <Text id="TI_dFo_Name" value="dFo" />
+    <Text id="TI_dFo_Description" value="Tempo de retardo das saídas em caso de erro" />
+    <Text id="TI_P-n_Name" value="P-n" />
+    <Text id="TI_P-n_Description" value="Polaridade de saída das saídas de comutação" />
+    <Text id="TI_P-n_SV_0" value="PnP" />
+    <Text id="TI_P-n_SV_1" value="nPn" />
+    <Text id="TI_PD_VR_1_Name" value="Nível" />
+    <Text id="TI_PD_VR_1_Descr" value="Nível atual" />
+    <Text id="TI_PD_SV_2_Name" value="OUT2" />
+    <Text id="TI_PD_SV_2_true" value="ativo" />
+    <Text id="TI_PD_SV_2_false" value="inativo" />
+    <Text id="TI_PD_SV_2_Descr" value="Estado dependente de [OU2]" />
+    <Text id="TI_PD_SV_3_Name" value="OUT1" />
+    <Text id="TI_PD_SV_3_true" value="ativo" />
+    <Text id="TI_PD_SV_3_false" value="inativo" />
+    <Text id="TI_PD_SV_3_Descr" value="Estado dependente de [OU1]" />
+    <Text id="TI_PdIn_Name" value="Dados do processo de entrada" />
+    <Text id="TI_M_Setup_Name" value="Ajustes de base " />
+    <Text id="TI_M_Digital_Output1_Name" value="Saída digital 1" />
+    <Text id="TI_M_Digital_Output2_Name" value="Saída digital 2" />
+    <Text id="TI_M_Output_Configuration_Name" value="Configuração de saída " />
+    <Text id="TI_M_Fault_Output_Configuration1_Name" value="Configuração de erros saída  1" />
+    <Text id="TI_M_Fault_Output_Configuration2_Name" value="Configuração de erros saída  2" />
+    <Text id="TI_M_Fault_Configuration_Name" value="Configuração de erros " />
+  </Language>
+  <Stamp crc="1365628977"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

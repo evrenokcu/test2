@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.2.12.68157" releaseDate="2016-03-02" copyright="Copyright 2016, Builder: 2.5.2.6, Time: 07:45:11" />
+  <Language xml:lang="zh">
+    <Text id="TI_ProductName0" value="LX0017" />
+    <Text id="TI_ProductDescr0" value="电子液位传感器, 0...100 %, G 1/2''" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="LMT" />
+    <Text id="TI_DeviceName" value="LX0017" />
+    <Text id="TI_SysCmd255_Name" value="没有效果的命令，仅供内部使用" />
+    <Text id="TI_SysCmd240_Name" value="IO-Link 1.1 系统测试命令240，事件8DFE会出现" />
+    <Text id="TI_SysCmd241_Name" value="IO-Link 1.1 系统测试命令241，事件8DFE将消失" />
+    <Text id="TI_SysCmd242_Name" value="IO-Link 1.1 系统测试命令242，事件8DFF会出现" />
+    <Text id="TI_SysCmd243_Name" value="IO-Link 1.1 系统测试命令243，事件8DFF将消失" />
+    <Text id="TI_Message_SV_253" value="[rES]重置到出厂设置" />
+    <Text id="TI_Message_SV_1" value="[tSP1]设定 开关点 1" />
+    <Text id="TI_Message_SV_2" value="[tSP1]教导 开关点 2" />
+    <Text id="TI_Message_Name" value="命令" />
+    <Text id="TI_Message_Descr" value="在传感器上进行操作" />
+    <Text id="TI_SP1_Name" value="SP1" />
+    <Text id="TI_SP1_Description" value="开关点1, [SP1]应大于[rP1]。 请考虑实际[rP1]值。 如果[SP1]设置低于[rP1]，将被拒绝。" />
+    <Text id="TI_rP1_Name" value="rP1" />
+    <Text id="TI_rP1_Description" value="复位点 1, [rP1] 应小于[SP1]。 请考虑实际[SP1]值。 如果[rP1]设置高于[SP1]，将被拒绝。" />
+    <Text id="TI_SP2_Name" value="SP2" />
+    <Text id="TI_SP2_Description" value="开关点2, [SP2]应大于[rP2]。 请考虑实际[rP2]值。 如果[SP2]设置低于[rP2]，将被拒绝。" />
+    <Text id="TI_rP2_Name" value="rP2" />
+    <Text id="TI_rP2_Description" value="复位点 2, [rP2] 应小于[SP2]。 请考虑实际[SP2]值。 如果[rP2]设置高于[SP2]，将被拒绝。" />
+    <Text id="TI_ou2_Name" value="ou2" />
+    <Text id="TI_ou2_Description" value="输出配置[OUT 2]" />
+    <Text id="TI_ou2_SV_0" value="Hno / 滞后fct常开" />
+    <Text id="TI_ou2_SV_1" value="Hnc / 滞后fct常闭" />
+    <Text id="TI_ou2_SV_2" value="Fno / 窗口fct常开" />
+    <Text id="TI_ou2_SV_3" value="Fnc / 窗口fct常闭" />
+    <Text id="TI_ou1_Name" value="ou1" />
+    <Text id="TI_ou1_Description" value="输出配置[OUT 1]" />
+    <Text id="TI_ou1_SV_0" value="Hno / 滞后fct常开" />
+    <Text id="TI_ou1_SV_1" value="Hnc / 滞后fct常闭" />
+    <Text id="TI_ou1_SV_2" value="Fno / 窗口fct常开" />
+    <Text id="TI_ou1_SV_3" value="Fnc / 窗口fct常闭" />
+    <Text id="TI_ou1_SV_4" value="tch / 学习输入" />
+    <Text id="TI_VDMA-dr1_Name" value="dr1" />
+    <Text id="TI_VDMA-dr1_Description" value="的关闭延迟 [OUT1]。" />
+    <Text id="TI_VDMA-dr2_Name" value="dr2" />
+    <Text id="TI_VDMA-dr2_Description" value="的关闭延迟 [OUT2]。" />
+    <Text id="TI_FOU1_Name" value="FOU1" />
+    <Text id="TI_FOU1_Description" value="发生故障时[OUT 1]的表现" />
+    <Text id="TI_FOU1_SV_0" value="OFF" />
+    <Text id="TI_FOU1_SV_1" value="On" />
+    <Text id="TI_FOU2_Name" value="FOU2" />
+    <Text id="TI_FOU2_Description" value="发生故障时[OUT 2]的表现" />
+    <Text id="TI_FOU2_SV_0" value="OFF" />
+    <Text id="TI_FOU2_SV_1" value="On" />
+    <Text id="TI_dFo_Name" value="dFo" />
+    <Text id="TI_dFo_Description" value="故障后输出的延时" />
+    <Text id="TI_P-n_Name" value="P-n" />
+    <Text id="TI_P-n_Description" value="开关输出的输出极性" />
+    <Text id="TI_P-n_SV_0" value="PnP" />
+    <Text id="TI_P-n_SV_1" value="nPn" />
+    <Text id="TI_PD_VR_1_Name" value="液位" />
+    <Text id="TI_PD_VR_1_Descr" value="当前液位" />
+    <Text id="TI_PD_SV_2_Name" value="OUT2" />
+    <Text id="TI_PD_SV_2_true" value="有效" />
+    <Text id="TI_PD_SV_2_false" value="无效" />
+    <Text id="TI_PD_SV_2_Descr" value="状态取决于[OU2]" />
+    <Text id="TI_PD_SV_3_Name" value="OUT1" />
+    <Text id="TI_PD_SV_3_true" value="有效" />
+    <Text id="TI_PD_SV_3_false" value="无效" />
+    <Text id="TI_PD_SV_3_Descr" value="状态取决于[OU1]" />
+    <Text id="TI_PdIn_Name" value="过程数据输入" />
+    <Text id="TI_M_Setup_Name" value="设置 " />
+    <Text id="TI_M_Digital_Output1_Name" value="数字输出 1" />
+    <Text id="TI_M_Digital_Output2_Name" value="数字输出 2" />
+    <Text id="TI_M_Output_Configuration_Name" value="输出配置 " />
+    <Text id="TI_M_Fault_Output_Configuration1_Name" value="故障配置输出 1" />
+    <Text id="TI_M_Fault_Output_Configuration2_Name" value="故障配置输出 2" />
+    <Text id="TI_M_Fault_Configuration_Name" value="故障配置 " />
+  </Language>
+  <Stamp crc="4511403"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

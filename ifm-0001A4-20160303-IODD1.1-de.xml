@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.3.0" releaseDate="2016-03-03" copyright="Copyright 2016, ifm electronic gmbh" />
+  <Language xml:lang="de">
+    <Text id="TI_ProductName0" value="O6S305" />
+    <Text id="TI_ProductDescr0" value="Einweglichtschranke Sender, 0...10 m, DC" />
+    <Text id="TI_ProductName1" value="O6S314" />
+    <Text id="TI_ProductDescr1" value="Einweglichtschranke Sender, 0...10 m, DC" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="O6" />
+    <Text id="TI_DeviceName" value="O6S305 / O6S314" />
+    <Text id="TI_SysCmd240_Name" value="IO-Link 1.1 Systemtest Kommando 240,  Event 8DFE kommt" />
+    <Text id="TI_SysCmd241_Name" value="IO-Link 1.1 Systemtest Kommando 241,  Event 8DFE geht" />
+    <Text id="TI_SysCmd242_Name" value="IO-Link 1.1 Systemtest Kommando 242,  Event 8DFF kommt" />
+    <Text id="TI_SysCmd243_Name" value="IO-Link 1.1 Systemtest Kommando 243,  Event 8DFF geht" />
+    <Text id="TI_Number_Of_Powercycles_Name" value="Einschaltzähler" />
+    <Text id="TI_Number_Of_Powercycles_Description" value="Anzahl der Einschaltvorgänge" />
+    <Text id="TI_Operating_Hours_Name" value="Betriebsstunden" />
+    <Text id="TI_Operating_Hours_Description" value="Betriebsstunden" />
+    <Text id="TI_Transmitter_Configuration_Name" value="Sender Konfiguration" />
+    <Text id="TI_Transmitter_Configuration_Description" value="Konfiguration des optischen Senders" />
+    <Text id="TI_Transmitter_Configuration_SV_0" value="Sender aus" />
+    <Text id="TI_Transmitter_Configuration_SV_1" value="Sender an" />
+    <Text id="TI_Ev_8DFE_Name" value="Test Event 1" />
+    <Text id="TI_Ev_8DFE_Descr" value="Event kommt bei Setzen von Index 2 auf den Wert 240, Event geht bei Setzen von Index 2 auf den Wert 241" />
+    <Text id="TI_Ev_8DFF_Name" value="Test Event 2" />
+    <Text id="TI_Ev_8DFF_Descr" value="Event kommt bei Setzen von Index 2 auf den Wert 242, Event geht bei Setzen von Index 2 auf den Wert 243" />
+    <Text id="TI_M_Setup_Name" value="Grundeinstellungen " />
+    <Text id="TI_M_Diagnosis_Name" value="Diagnose " />
+    <Text id="TI_M_Signal_Name" value="Signal " />
+  </Language>
+  <Stamp crc="3629514218"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

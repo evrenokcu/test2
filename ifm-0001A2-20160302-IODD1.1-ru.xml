@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.2.12.68157" releaseDate="2016-03-02" copyright="Copyright 2016, Builder: 2.5.2.6, Time: 07:45:11" />
+  <Language xml:lang="ru">
+    <Text id="TI_ProductName0" value="LX0017" />
+    <Text id="TI_ProductDescr0" value="Электронный датчик уровня, 0...100 %, G 1/2''" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="LMT" />
+    <Text id="TI_DeviceName" value="LX0017" />
+    <Text id="TI_SysCmd255_Name" value="Безрезультатная команда, только для внутреннего использования" />
+    <Text id="TI_SysCmd240_Name" value="Появится IO-Link 1.1 system test command 240, Event 8DFE  " />
+    <Text id="TI_SysCmd241_Name" value="Исчезнет IO-Link 1.1 system test command 241, Event 8DFE  " />
+    <Text id="TI_SysCmd242_Name" value="Появится  IO-Link 1.1 system test command 242, Event 8DFF  " />
+    <Text id="TI_SysCmd243_Name" value="Исчезнет IO-Link 1.1 system test command 243, Event 8DFF  " />
+    <Text id="TI_Message_SV_253" value="[rES] Возврат к заводским настройкам" />
+    <Text id="TI_Message_SV_1" value="[tSP1] Обучить Точка переключения 1" />
+    <Text id="TI_Message_SV_2" value="[tSP2] Обучить Точка переключения 2" />
+    <Text id="TI_Message_Name" value="Команды" />
+    <Text id="TI_Message_Descr" value="Выполняет действие на датчике" />
+    <Text id="TI_SP1_Name" value="SP1" />
+    <Text id="TI_SP1_Description" value="Точка переключения 1, [SP1] должна быть выше чем[rP1]. Пожалуйста, учитывайте актуальное [rP1] значение.  Если [SP1] будет установлено ниже [rP1], то оно будет отклонено. " />
+    <Text id="TI_rP1_Name" value="rP1" />
+    <Text id="TI_rP1_Description" value="Точка сброса 1, [rP1] должна быть ниже чем [SP1]. Пожалуйста, учитывайте текущее [SP1] значение.  Если [rP1] будет установлено выше [SP1], то оно будет отклонено. " />
+    <Text id="TI_SP2_Name" value="SP2" />
+    <Text id="TI_SP2_Description" value="Точка переключения 2, [SP2] должна быть выше чем[rP2]. Пожалуйста, учитывайте актуальное [rP2] значение.  Если [SP2] будет установлено ниже [rP2], то оно будет отклонено. " />
+    <Text id="TI_rP2_Name" value="rP2" />
+    <Text id="TI_rP2_Description" value="Точка сброса 2, [rP2] должна быть ниже чем [SP2]. Пожалуйста, учитывайте текущее [SP2] значение.  Если [rP2] будет установлено выше [SP2], то оно будет отклонено. " />
+    <Text id="TI_ou2_Name" value="ou2" />
+    <Text id="TI_ou2_Description" value="Конфигурация выхода [OUT 2] " />
+    <Text id="TI_ou2_SV_0" value="Hno / Гистерезис fct нормально открытый " />
+    <Text id="TI_ou2_SV_1" value="Hnc / Гистерезис fct нормально закрытый " />
+    <Text id="TI_ou2_SV_2" value="Fno / Окно fct нормально открытый " />
+    <Text id="TI_ou2_SV_3" value="Fnc / Окно fct нормально закрытый " />
+    <Text id="TI_ou1_Name" value="ou1" />
+    <Text id="TI_ou1_Description" value="Конфигурация выхода [OUT 1] " />
+    <Text id="TI_ou1_SV_0" value="Hno / Гистерезис fct нормально открытый " />
+    <Text id="TI_ou1_SV_1" value="Hnc / Гистерезис fct нормально закрытый " />
+    <Text id="TI_ou1_SV_2" value="Fno / Окно fct нормально открытый " />
+    <Text id="TI_ou1_SV_3" value="Fnc / Окно fct нормально закрытый " />
+    <Text id="TI_ou1_SV_4" value="tch / Teach-вход " />
+    <Text id="TI_VDMA-dr1_Name" value="dr1" />
+    <Text id="TI_VDMA-dr1_Description" value="Задержка выключения [OUT 1]" />
+    <Text id="TI_VDMA-dr2_Name" value="dr2" />
+    <Text id="TI_VDMA-dr2_Description" value="Задержка выключения [OUT 2]" />
+    <Text id="TI_FOU1_Name" value="FOU1" />
+    <Text id="TI_FOU1_Description" value="[OUT 1] реакция в случае неисправности" />
+    <Text id="TI_FOU1_SV_0" value="OFF" />
+    <Text id="TI_FOU1_SV_1" value="On" />
+    <Text id="TI_FOU2_Name" value="FOU2" />
+    <Text id="TI_FOU2_Description" value="[OUT 2] реакция в случае неисправности" />
+    <Text id="TI_FOU2_SV_0" value="OFF" />
+    <Text id="TI_FOU2_SV_1" value="On" />
+    <Text id="TI_dFo_Name" value="dFo" />
+    <Text id="TI_dFo_Description" value="Время задержки выходов после ошибки" />
+    <Text id="TI_P-n_Name" value="P-n" />
+    <Text id="TI_P-n_Description" value="Полярность выхода для коммутационных выходов" />
+    <Text id="TI_P-n_SV_0" value="PnP" />
+    <Text id="TI_P-n_SV_1" value="nPn" />
+    <Text id="TI_PD_VR_1_Name" value="Уровень" />
+    <Text id="TI_PD_VR_1_Descr" value="Текущий уровень" />
+    <Text id="TI_PD_SV_2_Name" value="OUT2" />
+    <Text id="TI_PD_SV_2_true" value="активный" />
+    <Text id="TI_PD_SV_2_false" value="неактивный" />
+    <Text id="TI_PD_SV_2_Descr" value="Состояние зависит от [OU2]" />
+    <Text id="TI_PD_SV_3_Name" value="OUT1" />
+    <Text id="TI_PD_SV_3_true" value="активный" />
+    <Text id="TI_PD_SV_3_false" value="неактивный" />
+    <Text id="TI_PD_SV_3_Descr" value="Состояние зависит от [OU1]" />
+    <Text id="TI_PdIn_Name" value="Вход рабочих данных" />
+    <Text id="TI_M_Setup_Name" value="Настройка " />
+    <Text id="TI_M_Digital_Output1_Name" value="Цифровой выход  1" />
+    <Text id="TI_M_Digital_Output2_Name" value="Цифровой выход  2" />
+    <Text id="TI_M_Output_Configuration_Name" value="Конфигурация выхода " />
+    <Text id="TI_M_Fault_Output_Configuration1_Name" value="Конфигурация выхода аварийного состояния 1" />
+    <Text id="TI_M_Fault_Output_Configuration2_Name" value="Конфигурация выхода аварийного состояния 2" />
+    <Text id="TI_M_Fault_Configuration_Name" value="Конфигурация ошибки " />
+  </Language>
+  <Stamp crc="2899502866"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ExternalTextDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.io-link.com/IODD/2010/10" xsi:schemaLocation="http://www.io-link.com/IODD/2010/10 IODD-Primitives1.1.xsd">
+  <DocumentInfo version="V1.2.12.68157" releaseDate="2016-03-02" copyright="Copyright 2016, Builder: 2.5.2.6, Time: 07:45:11" />
+  <Language xml:lang="ko">
+    <Text id="TI_ProductName0" value="LX0017" />
+    <Text id="TI_ProductDescr0" value="전자적 레벨센서, 0...100 %, G 1/2''" />
+    <Text id="TI_VendorText" value="www.ifm.com" />
+    <Text id="TI_VendorUrl" value="www.ifm.com/ifmgb/web/io-link-download.htm" />
+    <Text id="TI_DeviceFamily" value="LMT" />
+    <Text id="TI_DeviceName" value="LX0017" />
+    <Text id="TI_SysCmd255_Name" value="효력없는 명령어, 내부전용" />
+    <Text id="TI_SysCmd240_Name" value="IO- 링크 1.1 시스템 테스트 명령 240, 이벤트 8DFE가 나타남" />
+    <Text id="TI_SysCmd241_Name" value="IO- 링크 1.1 시스템 테스트 명령 241, 이벤트 8DFE가 나타남" />
+    <Text id="TI_SysCmd242_Name" value="IO- 링크 1.1 시스템 명령 242, 이벤트 8DFF가 나타남" />
+    <Text id="TI_SysCmd243_Name" value="IO 링크 1.1  시스템 테스트 명령어 243, 이벤트 8DFF가 사라짐" />
+    <Text id="TI_Message_SV_253" value="공장설정에 대한 [rES] 리셋" />
+    <Text id="TI_Message_SV_1" value="[tSP1] 티치 스위치포인트 1" />
+    <Text id="TI_Message_SV_2" value="[tSP2] 티치 스위치포인트 2" />
+    <Text id="TI_Message_Name" value="명령어" />
+    <Text id="TI_Message_Descr" value="센서 작업을 수행" />
+    <Text id="TI_SP1_Name" value="SP1" />
+    <Text id="TI_SP1_Description" value="스위치포인트 1, [SP1] 는 [rP1] 보다 커야 합니다. 실제 [rP1] 값을 고려해야 함에 유의하십시오. [SP1]가  [rP1] 미만으로 내려가면, 거부됩니다." />
+    <Text id="TI_rP1_Name" value="rP1" />
+    <Text id="TI_rP1_Description" value="리셋 포인트 1, [rP1]는 [SP1]보다 작아야 합니다.  실제 [SP1] 값을 고려해야 함에 유의하십시오.  [rP1]가 [SP1] 값을 넘어서는 경우, 거부됩니다." />
+    <Text id="TI_SP2_Name" value="SP2" />
+    <Text id="TI_SP2_Description" value="스위치포인트 2, [SP2] 는 [rP2] 보다 커야 합니다. 실제 [rP2] 값을 고려해야 함에 유의하십시오. [SP2]가  [rP2] 미만으로 내려가면, 거부됩니다." />
+    <Text id="TI_rP2_Name" value="rP2" />
+    <Text id="TI_rP2_Description" value="리셋 포인트 2, [rP2]는 [SP2]보다 작아야 합니다.  실제 [SP2] 값을 고려해야 함에 유의하십시오.  [rP2]가 [SP2] 값을 넘어서는 경우, 거부됩니다." />
+    <Text id="TI_ou2_Name" value="ou2" />
+    <Text id="TI_ou2_Description" value="출력 구성 [OUT 2]" />
+    <Text id="TI_ou2_SV_0" value="Hno / 히스테리시스 fct normally open" />
+    <Text id="TI_ou2_SV_1" value="Hnc / 히스테리시스 fct normally closed" />
+    <Text id="TI_ou2_SV_2" value="Fno / 윈도 fct normally open" />
+    <Text id="TI_ou2_SV_3" value="Fnc / 윈도 fct normally closed" />
+    <Text id="TI_ou1_Name" value="ou1" />
+    <Text id="TI_ou1_Description" value="출력 구성 [OUT 1]" />
+    <Text id="TI_ou1_SV_0" value="Hno / 히스테리시스 fct normally open" />
+    <Text id="TI_ou1_SV_1" value="Hnc / 히스테리시스 fct normally closed" />
+    <Text id="TI_ou1_SV_2" value="Fno / 윈도 fct normally open" />
+    <Text id="TI_ou1_SV_3" value="Fnc / 윈도 fct normally closed" />
+    <Text id="TI_ou1_SV_4" value="tch / 티치 입력" />
+    <Text id="TI_VDMA-dr1_Name" value="dr1" />
+    <Text id="TI_VDMA-dr1_Description" value="을 위한 switch off 지연[OUT1]." />
+    <Text id="TI_VDMA-dr2_Name" value="dr2" />
+    <Text id="TI_VDMA-dr2_Description" value="을 위한 switch off 지연[OUT2]." />
+    <Text id="TI_FOU1_Name" value="FOU1" />
+    <Text id="TI_FOU1_Description" value="오류의 경우 [OUT 1] 작용" />
+    <Text id="TI_FOU1_SV_0" value="OFF" />
+    <Text id="TI_FOU1_SV_1" value="On" />
+    <Text id="TI_FOU2_Name" value="FOU2" />
+    <Text id="TI_FOU2_Description" value="오류의 경우 [OUT 2] 작용" />
+    <Text id="TI_FOU2_SV_0" value="OFF" />
+    <Text id="TI_FOU2_SV_1" value="On" />
+    <Text id="TI_dFo_Name" value="dFo" />
+    <Text id="TI_dFo_Description" value="오류시 출력 지연시간" />
+    <Text id="TI_P-n_Name" value="P-n" />
+    <Text id="TI_P-n_Description" value="스위칭 출력을 위한 출력 양극성" />
+    <Text id="TI_P-n_SV_0" value="PnP" />
+    <Text id="TI_P-n_SV_1" value="nPn" />
+    <Text id="TI_PD_VR_1_Name" value="레벨" />
+    <Text id="TI_PD_VR_1_Descr" value="현재 레벨" />
+    <Text id="TI_PD_SV_2_Name" value="OUT2" />
+    <Text id="TI_PD_SV_2_true" value="활성화" />
+    <Text id="TI_PD_SV_2_false" value="비활성화" />
+    <Text id="TI_PD_SV_2_Descr" value="상태가 [OU2]에 의존함" />
+    <Text id="TI_PD_SV_3_Name" value="OUT1" />
+    <Text id="TI_PD_SV_3_true" value="활성화" />
+    <Text id="TI_PD_SV_3_false" value="비활성화" />
+    <Text id="TI_PD_SV_3_Descr" value="상태가 [OU1]에 의존함" />
+    <Text id="TI_PdIn_Name" value="프로세스 데이터 입력" />
+    <Text id="TI_M_Setup_Name" value="셋업 " />
+    <Text id="TI_M_Digital_Output1_Name" value="디지털 출력 1" />
+    <Text id="TI_M_Digital_Output2_Name" value="디지털 출력 2" />
+    <Text id="TI_M_Output_Configuration_Name" value="출력 구성 " />
+    <Text id="TI_M_Fault_Output_Configuration1_Name" value="오류 구성 출력 1" />
+    <Text id="TI_M_Fault_Output_Configuration2_Name" value="오류 구성 출력 2" />
+    <Text id="TI_M_Fault_Configuration_Name" value="오류 구성 " />
+  </Language>
+  <Stamp crc="944822616"><Checker name="IODD-Checker V1.1.1" version="V1.1.1.0"/></Stamp>
+</ExternalTextDocument>
