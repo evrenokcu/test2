@@ -1,20 +1,23 @@
 import os
-from flask import Flask, request, jsonify
+from fastapi import FastAPI, Request
+from pydantic import BaseModel
+import uvicorn
 
-app = Flask(__name__)
+app = FastAPI()
 
-# GET endpoint
-@app.route('/hello', methods=['GET'])
+# Pydantic model (optional) for the POST request data
+class EchoData(BaseModel):
+    message: str
+
+@app.get("/hello")
 def hello():
-    return jsonify({"message": "Hello from Flask!"})
+    return {"message": "Hello from FastAPI!"}
 
-# POST endpoint
-@app.route('/echo', methods=['POST'])
-def echo():
-    data = request.json
-    return jsonify({"you_sent": data})
+@app.post("/echo")
+async def echo(data: EchoData):
+    return {"you_sent": data.dict()}
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Cloud Run sets the PORT environment variable; default to 8080 if not set
     port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
+    uvicorn.run(app, host="0.0.0.0", port=port)
