@@ -5,7 +5,6 @@ from llama_index.llms.openai import OpenAI
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
 from datetime import datetime
-from openai import OpenAI
 import requests
 import json
 import os
