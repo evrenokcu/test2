@@ -88,6 +88,14 @@ def call_openai(prompt):
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
+@app.route("/test_connectivity", methods=["GET"])
+def test_connectivity():
+    try:
+        response = requests.get("https://www.google.com")
+        return {"status": response.status_code, "message": "Internet connectivity is working"}
+    except Exception as e:
+        return {"error": f"Connectivity issue: {str(e)}"}, 500
+    
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))
     app.run(host="0.0.0.0", port=port)
