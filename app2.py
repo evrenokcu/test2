@@ -5,9 +5,13 @@ from llama_index.llms.openai import OpenAI
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
 from datetime import datetime
-from pydantic import BaseModel
+import openai
+import requests
+import json
+import os
+
 # Load environment variables
-# env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../.env"))
+# env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "./.env"))
 # load_dotenv(dotenv_path=env_path)
 
 # Suppress gRPC warnings
@@ -16,6 +20,7 @@ os.environ["GRPC_TRACE"] = ""
 
 # Initialize Flask
 app = Flask(__name__)
+app.debug = True
 
 # Initialize LLM clients
 llms = {
@@ -23,16 +28,14 @@ llms = {
     "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
 }
-class EchoData(BaseModel):
-    message: str
 
 @app.get("/hello")
 def hello():
     return {"message": "Hello from FastAPI!"}
 
-@app.post("/echo")
-async def echo(data: EchoData):
-    return {"you_sent": data.dict()}
+# @app.post("/echo")
+# async def echo(data: EchoData):
+#     return {"you_sent": data.dict()}
 
 @app.route("/", methods=["POST"])
 def query_llm():
@@ -54,7 +57,7 @@ def query_llm():
 
     # Query the LLM
     try:
-        response = llm_client.acomplete(prompt)
+        response = llm_client.complete(prompt)
         response_text = response.text if hasattr(response, 'text') else str(response)
         return jsonify({
             "llm": llm_name,
@@ -66,6 +69,24 @@ def query_llm():
         return jsonify({
             "error": f"Error querying {llm_name}: {str(e)}"
         }), 500
+@app.route("/direct_openai", methods=["POST"])
+# Load your OpenAI API key from an environment variable or directly assign it
+
+
+def call_openai(prompt):
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",  # You can change this to another model if desired
+            messages=[
+                {"role": "system", "content": "You are a helpful assistant."},
+                {"role": "user", "content": prompt}
+            ],
+            max_tokens=150,  # Set the maximum number of tokens in the output
+            temperature=0.7  # Adjust the creativity level of the response
+        )
+        return response['choices'][0]['message']['content'].strip()
+    except Exception as e:
+        return f"An error occurred: {str(e)}"
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT", 8080))

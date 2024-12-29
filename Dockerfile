@@ -11,10 +11,10 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the source code
-COPY app.py .
+COPY app2.py .
 
 # We expose port 8080 for documentation (though Cloud Run configures runtime PORT envvar)
 EXPOSE 8080
 
 # Set the entrypoint to run the Flask app
-CMD ["python", "app.py"]
+CMD ["python", "app2.py"]
