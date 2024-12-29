@@ -23,11 +23,11 @@ app = Flask(__name__)
 app.debug = True
 
 # Initialize LLM clients
-llms = {
-    "ChatGPT": OpenAI(),
-    "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
-    "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
-}
+# llms = {
+#     "ChatGPT": OpenAI(),
+#     "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
+#     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
+# }
 
 @app.get("/hello")
 def hello():
@@ -37,38 +37,38 @@ def hello():
 # async def echo(data: EchoData):
 #     return {"you_sent": data.dict()}
 
-@app.route("/", methods=["POST"])
-def query_llm():
-    """
-    Query the specified LLM with a given prompt and return the response as a string.
-    """
-    data = request.json
-    llm_name = data.get("llm_name")
-    prompt = data.get("prompt")
+# @app.route("/", methods=["POST"])
+# def query_llm():
+#     """
+#     Query the specified LLM with a given prompt and return the response as a string.
+#     """
+#     data = request.json
+#     llm_name = data.get("llm_name")
+#     prompt = data.get("prompt")
 
-    # Check if the specified LLM is supported
-    if llm_name not in llms:
-        return jsonify({
-            "error": f"LLM '{llm_name}' not supported. Available: {list(llms.keys())}"
-        }), 400
+#     # Check if the specified LLM is supported
+#     if llm_name not in llms:
+#         return jsonify({
+#             "error": f"LLM '{llm_name}' not supported. Available: {list(llms.keys())}"
+#         }), 400
     
-    # Get the corresponding LLM client
-    llm_client = llms[llm_name]
+#     # Get the corresponding LLM client
+#     llm_client = llms[llm_name]
 
-    # Query the LLM
-    try:
-        response = llm_client.complete(prompt)
-        response_text = response.text if hasattr(response, 'text') else str(response)
-        return jsonify({
-            "llm": llm_name,
-            "response": response_text,
-            "timestamp": datetime.now().isoformat(),
-            "status": "completed"
-        })
-    except Exception as e:
-        return jsonify({
-            "error": f"Error querying {llm_name}: {str(e)}"
-        }), 500
+#     # Query the LLM
+#     try:
+#         response = llm_client.complete(prompt)
+#         response_text = response.text if hasattr(response, 'text') else str(response)
+#         return jsonify({
+#             "llm": llm_name,
+#             "response": response_text,
+#             "timestamp": datetime.now().isoformat(),
+#             "status": "completed"
+#         })
+#     except Exception as e:
+#         return jsonify({
+#             "error": f"Error querying {llm_name}: {str(e)}"
+#         }), 500
 @app.route("/direct_openai", methods=["POST"])
 def call_openai():
     try:
