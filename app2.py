@@ -70,12 +70,9 @@ def query_llm():
             "error": f"Error querying {llm_name}: {str(e)}"
         }), 500
 @app.route("/direct_openai", methods=["POST"])
-# Load your OpenAI API key from an environment variable or directly assign it
-
-
 def call_openai():
     try:
-        client = OpenAI(            api_key=os.environ.get("OPENAI_API_KEY"),)
+        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),)
 
         # chat_completion = client.chat.completions.create(
         #     messages=[
