@@ -8,4 +8,4 @@ llama-index-llms-gemini
 argparse
 uvicorn
 openai
-
+flask_cors

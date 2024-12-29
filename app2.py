@@ -5,6 +5,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
 from datetime import datetime
+from flask_cors import CORS
 import requests
 import json
 import os
@@ -19,6 +20,7 @@ os.environ["GRPC_TRACE"] = ""
 
 # Initialize Flask
 app = Flask(__name__)
+CORS(app)
 app.debug = True
 
 # Initialize LLM clients
