@@ -72,7 +72,7 @@ def query_llm():
 @app.route("/direct_openai", methods=["POST"])
 def call_openai():
     try:
-        client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"),)
+        client = OpenAI()
 
         # chat_completion = client.chat.completions.create(
         #     messages=[
