@@ -5,7 +5,7 @@ from llama_index.llms.openai import OpenAI
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
 from datetime import datetime
-import openai
+from openai import OpenAI
 import requests
 import json
 import os
@@ -73,18 +73,30 @@ def query_llm():
 # Load your OpenAI API key from an environment variable or directly assign it
 
 
-def call_openai(prompt):
+def call_openai():
     try:
-        response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",  # You can change this to another model if desired
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant."},
-                {"role": "user", "content": prompt}
-            ],
-            max_tokens=150,  # Set the maximum number of tokens in the output
-            temperature=0.7  # Adjust the creativity level of the response
-        )
-        return response['choices'][0]['message']['content'].strip()
+        client = OpenAI(            api_key=os.environ.get("OPENAI_API_KEY"),)
+
+        # chat_completion = client.chat.completions.create(
+        #     messages=[
+        #     {
+        #         "role": "user",
+        #         "content": "Say this is a test",
+        #     }
+        #   ],model="gpt-4o",)
+        
+        response = client.chat.completions.create(
+             model="gpt-3.5-turbo",  # You can change this to another model if desired
+             messages=[
+                 {"role": "system", "content": "You are a helpful assistant."},
+                 {"role": "user", "content": "why is the sky blue?"}
+             ],
+             max_tokens=150,  # Set the maximum number of tokens in the output
+             temperature=0.7  # Adjust the creativity level of the response
+         )
+        return  response.choices[0].message.content
+
+        #return response['choices'][0]['message']['content'].strip()
     except Exception as e:
         return f"An error occurred: {str(e)}"
 
