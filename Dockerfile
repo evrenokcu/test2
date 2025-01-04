@@ -1,5 +1,5 @@
-# Use the official Python image
-FROM python:3.9-slim
+# Stage 1: Build stage
+FROM python:3.9-slim AS builder
 
 # Create a working directory
 WORKDIR /app
@@ -7,13 +7,26 @@ WORKDIR /app
 # Copy requirements.txt into the container
 COPY requirements.txt .
 
-# Install dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Install dependencies into a virtual environment in the /venv directory
+RUN python -m venv /venv && \
+    /venv/bin/pip install --no-cache-dir -r requirements.txt
 
-# Copy the source code
+# Stage 2: Runtime stage
+FROM python:3.9-slim
+
+# Create a working directory
+WORKDIR /app
+
+# Copy the virtual environment from the builder stage
+COPY --from=builder /venv /venv
+
+# Copy the application code
 COPY app2.py .
 
-# We expose port 8080 for documentation (though Cloud Run configures runtime PORT envvar)
+# Ensure the virtual environment's Python and pip are used
+ENV PATH="/venv/bin:$PATH"
+
+# Expose the port
 EXPOSE 8080
 
 # Set the entrypoint to run the Flask app
