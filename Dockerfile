@@ -21,7 +21,7 @@ WORKDIR /app
 COPY --from=builder /venv /venv
 
 # Copy the application code
-COPY app2.py .
+COPY app_async.py .
 
 # Ensure the virtual environment's Python and pip are used
 ENV PATH="/venv/bin:$PATH"
@@ -30,4 +30,4 @@ ENV PATH="/venv/bin:$PATH"
 EXPOSE 8080
 
 # Set the entrypoint to run the Flask app
-CMD ["python", "app2.py"]
+CMD ["python", "app_async.py"]
