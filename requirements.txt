@@ -20,3 +20,5 @@ llama-index-llms-gemini
 argparse
 uvicorn
 openai
+pydantic
+aiohttp

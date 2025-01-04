@@ -7,6 +7,9 @@ from llama_index.llms.gemini import Gemini
 from datetime import datetime
 from quart_cors import cors
 import aiohttp
+from pydantic import BaseModel
+import time
+import asyncio 
 
 # Load environment variables
 #load_dotenv()
@@ -20,12 +23,58 @@ app = Quart(__name__)
 app = cors(app, allow_origin="*")
 app.debug = True
 
+class LlmRequest(BaseModel):
+    llm_name: str
+    prompt: str
+
+class LlmResponse(BaseModel):
+    llm: str
+    response: str
+    timestamp: str
+    status: str
+    duration: float = None
+
+class LlmResponses(BaseModel):
+    responses: list[LlmResponse]
+
 # Initialize LLM clients
 llms = {
     "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
     "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
 }
+
+async def llm(llm_name: str, prompt: str) -> LlmResponse:
+    start_time = time.time()
+    llm_client = llms[llm_name]
+    response = await llm_client.acomplete(prompt)
+    response_text = response.text if hasattr(response, 'text') else str(response)
+    end_time = time.time()
+    return LlmResponse(
+        llm=llm_name,
+        response=response_text,
+        timestamp=datetime.now().isoformat(),
+        status="completed",
+        duration=end_time - start_time
+    )
+
+@app.post("/llmall")
+async def llmall():
+    """
+    Query all LLMs in parallel and return a list of responses.
+    """
+    data = await request.get_json()
+    llm_request = LlmRequest(**data)
+
+    # Call all LLMs in parallel
+    tasks = [
+        llm(llm_name, llm_request.prompt)
+        for llm_name in llms.keys()
+    ]
+    results = await asyncio.gather(*tasks)
+
+    # Return results as LlmResponses
+    return jsonify(LlmResponses(responses=results).dict())
 
 @app.get("/hello")
 async def hello():
@@ -62,6 +111,31 @@ async def query_llm():
     except Exception as e:
         return jsonify({
             "error": f"Error querying {llm_name}: {str(e)}"
+        }), 500
+    
+@app.post("/llm")
+async def llm_call():
+    """
+    Query the specified LLM with a given prompt and return the response as a structured object.
+    """
+    data = await request.get_json()
+    try:
+        # Validate and parse the incoming JSON using LlmRequest
+        llm_request = LlmRequest(**data)
+
+        # Check if the specified LLM is supported
+        if llm_request.llm_name not in llms:
+            return jsonify({
+                "error": f"LLM '{llm_request.llm_name}' not supported. Available: {list(llms.keys())}"
+            }), 400
+
+        # Use the llm helper function to process the request
+        llm_response = await llm(llm_request.llm_name, llm_request.prompt)
+        return jsonify(llm_response.dict())
+
+    except Exception as e:
+        return jsonify({
+            "error": f"Error processing request: {str(e)}"
         }), 500
 
 @app.post("/direct_openai")
