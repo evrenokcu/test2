@@ -6,7 +6,6 @@ from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
 from datetime import datetime
 from quart_cors import cors
-import aiohttp
 from pydantic import BaseModel
 import time
 import asyncio 
@@ -29,14 +28,14 @@ def is_running_in_container() -> bool:
         return False
     return False
 
-if is_running_in_container():
-        print("The app is running inside a container.")
+# if is_running_in_container():
+#         print("The app is running inside a container.")
         
-else:
-        print("The app is not running inside a container.")
-        env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
-        load_dotenv(dotenv_path=env_path)
-        os.environ["PORT"] = "8000"
+# else:
+#         print("The app is not running inside a container.")
+#         env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
+#         load_dotenv(dotenv_path=env_path)
+#         os.environ["PORT"] = "8000"
 
 # Initialize Quart
 app = Quart(__name__)
@@ -133,6 +132,7 @@ async def process_refine(responses:LlmResultList)->LlmResponseList:
     prompt=os.getenv("EVALUATION_PROMPT")
     llm_response_list = await process_llm_result_list(responses, LlmRequest(prompt=prompt))
     return llm_response_list
+
 @app.post("/refine")
 async def refine():
     data = await request.get_json()
@@ -272,5 +272,5 @@ if __name__ == "__main__":
     
 
     port = int(os.getenv("PORT", 8080))
-    print(f"Starting server on port {port}")
+    #print(f"Starting server on port {port}")
     app.run(host="0.0.0.0", port=port)
