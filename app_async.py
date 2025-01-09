@@ -70,7 +70,7 @@ llms = {
     "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
     "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
-    "Groq": Groq(api_key=os.getenv("GROQ_API_KEY")),
+    #"Groq": Groq(api_key=os.getenv("GROQ_API_KEY")),
 }
 
 async def process_llm(request: SingleLlmRequest) -> LlmResponse:
