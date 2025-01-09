@@ -4,6 +4,7 @@ from quart import Quart, request, jsonify
 from llama_index.llms.openai import OpenAI
 from llama_index.llms.anthropic import Anthropic
 from llama_index.llms.gemini import Gemini
+from llama_index.llms.groq import Groq
 from datetime import datetime
 from quart_cors import cors
 from pydantic import BaseModel
@@ -69,6 +70,7 @@ llms = {
     "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
     "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
+    "Grok": Groq(api_key=os.getenv("GROQ_API_KEY")),
 }
 
 async def process_llm(request: SingleLlmRequest) -> LlmResponse:
