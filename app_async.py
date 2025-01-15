@@ -234,7 +234,7 @@ async def query_llm():
         response = await llm_client.acomplete(prompt)
         response_text = response.text if hasattr(response, 'text') else str(response)
         return jsonify({
-            "llm_name": llm_name,
+            "llm": llm_name,
             "response": response_text,
             "timestamp": datetime.now().isoformat(),
             "status": "completed"
