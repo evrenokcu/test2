@@ -53,7 +53,7 @@ class LlmResult(BaseModel):
     response: str
 
 class LlmResponse(BaseModel):
-    llm: str
+    llm_name: str
     response: str
     timestamp: str
     status: str
@@ -80,7 +80,7 @@ async def process_llm(request: SingleLlmRequest) -> LlmResponse:
     response_text = response.text if hasattr(response, 'text') else str(response)
     end_time = time.time()
     return LlmResponse(
-        llm=request.llm_name,
+        llm_name=request.llm_name,
         response=response_text,
         timestamp=datetime.now().isoformat(),
         status="completed",
@@ -186,7 +186,7 @@ async def flow():
 
         # Convert the aggregated response to LlmResultList for refine step
         aggregated_results = LlmResultList(responses=[
-            LlmResult(llm_name=response.llm, response=response.response)
+            LlmResult(llm_name=response.llm_name, response=response.response)
             for response in aggregated_response.responses
         ])
 
@@ -195,7 +195,7 @@ async def flow():
 
         # Convert the refined response to LlmResultList for summarize step
         refined_results = LlmResultList(responses=[
-            LlmResult(llm_name=response.llm, response=response.response)
+            LlmResult(llm_name=response.llm_name, response=response.response)
             for response in refined_response.responses
         ])
 
@@ -234,7 +234,7 @@ async def query_llm():
         response = await llm_client.acomplete(prompt)
         response_text = response.text if hasattr(response, 'text') else str(response)
         return jsonify({
-            "llm": llm_name,
+            "llm_name": llm_name,
             "response": response_text,
             "timestamp": datetime.now().isoformat(),
             "status": "completed"
