@@ -68,7 +68,8 @@ class LlmResultList(BaseModel):
 # Initialize LLM clients
 llms = {
     "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
-    "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
+    # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
+    "Claude": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
     # "Groq": Groq(model="llama3-70b-8192", api_key=os.getenv("xai-fwJaNgak7lu7IZOZVrlTeqtn8WtJ2zV47VLvoK6fedx3b6VZnu9vUCKzz3i3zRisqCN0W2yTtzFtHfrb")),
 }
