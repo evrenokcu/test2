@@ -88,7 +88,9 @@ class LlmResponse(BaseModel):
     response: str
     timestamp: str
     status: str
-    duration: float = None
+    duration: float 
+    token_count: int = 0  # Default value for token count
+    price: float = 0.0
 
 class LlmResponseList(BaseModel):
     responses: list[LlmResponse]
@@ -109,10 +111,10 @@ llms = {
     #llm2 = 
 ##llm = ChatGoogleGenerativeAI(model='claude-3-opus-20240229')
  
-    "ChatGPT": ChatOpenAI(model_name="gpt-4o-mini"),
+    "ChatGPT": ChatOpenAI(model_name="gpt-4"),
     # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
-    "Claude": ChatGoogleGenerativeAI(model="models/gemini-exp-1206"),
-    "Gemini": ChatGoogleGenerativeAI(model="models/gemini-exp-1206"),
+    "Claude": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
+    "Gemini": ChatGoogleGenerativeAI(model="models/gemini-exp-1121"),
     # "Groq": Groq(model="llama3-70b-8192", api_key=os.getenv("xai-fwJaNgak7lu7IZOZVrlTeqtn8WtJ2zV47VLvoK6fedx3b6VZnu9vUCKzz3i3zRisqCN0W2yTtzFtHfrb")),
 }
 
@@ -120,6 +122,8 @@ async def process_llm(request: SingleLlmRequest) -> LlmResponse:
     start_time = time.time()
     llm_client = llms[request.llm_name]
     response = await llm_client.ainvoke(request.prompt)
+    token_count = response.usage_metadata.get("total_tokens", 0)  # 0 as a fallback value
+    
     response_text = response.content if hasattr(response, 'content') else str(response)
     end_time = time.time()
     return LlmResponse(
@@ -127,7 +131,9 @@ async def process_llm(request: SingleLlmRequest) -> LlmResponse:
         response=response_text,
         timestamp=datetime.now().isoformat(),
         status="completed",
-        duration=end_time - start_time
+        duration=end_time - start_time,
+        token_count= token_count, # Default value for token count
+        price=  0.0
     )
 async def process_llm_list(llm_request: LlmRequest, llm_names: List[str]) -> LlmResponseList:
     """
@@ -171,7 +177,7 @@ async def process_llm_result_list_on_llm(llm_result_list: LlmResultList, request
 
 async def process_summarize(responses: LlmResultList) -> LlmResponseList:
     prompt = os.getenv("MERGE_PROMPT", "Summarize these responses.")
-    summarize_request = SingleLlmRequest(llm_name="ChatGPT", prompt=prompt)
+    summarize_request = SingleLlmRequest(llm_name="Gemini", prompt=prompt)
     return await process_llm_result_list_on_llm(responses, summarize_request)
 async def process_refine(responses:LlmResultList)->LlmResponseList:
     prompt=os.getenv("EVALUATION_PROMPT")
@@ -185,7 +191,7 @@ async def refine():
     llm_response_list = await process_refine(llm_request)
 
     # Return the LlmResponseList as a JSON response
-    return jsonify(llm_response_list.dict())
+    return jsonify(llm_response_list.model_dump())
 
 @app.post("/summarize")
 async def summarize():
@@ -194,7 +200,7 @@ async def summarize():
     llm_response_list = await process_summarize(llm_request)
 
     # Return the LlmResponseList as a JSON response
-    return jsonify(llm_response_list.dict())
+    return jsonify(llm_response_list.model_dump())
 
 async def process_aggregate(llm_request:LlmRequest, llms:List[str])->LlmResponseList:
     return await process_llm_list(llm_request, llms)
@@ -211,7 +217,7 @@ async def aggregate():
     llm_response_list = await process_aggregate(llm_request, llms.keys())
 
     # Return the LlmResponseList as a JSON response
-    return jsonify(llm_response_list.dict())
+    return jsonify(llm_response_list.model_dump())
 
 @app.post("/flow")
 async def flow():
@@ -243,11 +249,11 @@ async def flow():
         ])
 
         # Step 3: Summarize
-        summarize_request = SingleLlmRequest(llm_name="ChatGPT", prompt="Summarize these results.")
+        summarize_request = SingleLlmRequest(llm_name="Gemini", prompt="Summarize these results.")
         summarized_response = await process_llm_result_list_on_llm(refined_results, summarize_request)
 
         # Return the final summarized response as JSON
-        return jsonify(summarized_response.dict())
+        return jsonify(summarized_response.model_dump())
 
     except Exception as e:
         return jsonify({

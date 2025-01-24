@@ -1,7 +1,7 @@
 import google.generativeai as generativeai
 
 # Authenticate with your API key
-generativeai.auth = "key herek"
+generativeai.auth = ""
 
 # List available models
 models = generativeai.list_models()
