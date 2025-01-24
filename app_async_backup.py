@@ -1,47 +1,17 @@
+
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 from quart import Quart, request, jsonify
-#from llama_index.llms.openai import OpenAI
-# from llama_index.llms.anthropic import Anthropic
-# from llama_index.llms.gemini import Gemini
-# from llama_index.llms.groq import Groq
+from llama_index.llms.openai import OpenAI
+from llama_index.llms.anthropic import Anthropic
+from llama_index.llms.gemini import Gemini
+from llama_index.llms.groq import Groq
 from datetime import datetime
 from quart_cors import cors
 from pydantic import BaseModel
 import time
 import asyncio 
 from typing import List
-### start of langchain
-from dotenv import load_dotenv
-from langchain_community.callbacks import get_openai_callback
-import os
-#from langchain_community.callbacks import get_anthropic_callback
-
-from langchain_openai import ChatOpenAI, OpenAI
-from langchain_anthropic import Anthropic, AnthropicLLM, ChatAnthropic
-from langchain_google_genai import ChatGoogleGenerativeAI
-#env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "./.env"))
-
-
-#load_dotenv(dotenv_path=env_path)
-# print(os.getenv("ANTHROPIC_API_KEY"))
-# #llm2 = OpenAI(model_name="gpt-3.5-turbo-instruct")
-# ##llm = ChatGoogleGenerativeAI(model='claude-3-opus-20240229')
-# llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro")
-
-
-# with get_openai_callback() as cb:
-#     result = llm.invoke("Tell me a joke")
-#     print(result)
-#     print("---")
-# print()
-
-# print(f"Total Tokens: {cb.total_tokens}")
-# print(f"Prompt Tokens: {cb.prompt_tokens}")
-# print(f"Completion Tokens: {cb.completion_tokens}")
-# print(f"Total Cost (USD): ${cb.total_cost}")
-# ##end of langchain
-# #print(llm.invoke("Tell me a joke"))
 
 # Load environment variables
 #load_dotenv()
@@ -60,14 +30,14 @@ def is_running_in_container() -> bool:
         return False
     return False
 
-# if is_running_in_container():
-#         print("The app is running inside a container.")
+if is_running_in_container():
+        print("The app is running inside a container.")
         
-# else:
-#         print("The app is not running inside a container.")
-#         env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
-#         load_dotenv(dotenv_path=env_path)
-#         os.environ["PORT"] = "8000"
+else:
+        print("The app is not running inside a container.")
+        env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
+        load_dotenv(dotenv_path=env_path)
+        os.environ["PORT"] = "8000"
 
 # Initialize Quart
 app = Quart(__name__)
@@ -97,30 +67,19 @@ class LlmResultList(BaseModel):
     responses: list[LlmResult]
 
 # Initialize LLM clients
-# llms = {
-#     "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
-#     # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
-#     "Claude": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
-#     "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
-#     # "Groq": Groq(model="llama3-70b-8192", api_key=os.getenv("xai-fwJaNgak7lu7IZOZVrlTeqtn8WtJ2zV47VLvoK6fedx3b6VZnu9vUCKzz3i3zRisqCN0W2yTtzFtHfrb")),
-# }
-
 llms = {
-    #llm2 = 
-##llm = ChatGoogleGenerativeAI(model='claude-3-opus-20240229')
- 
-    "ChatGPT": ChatOpenAI(model_name="gpt-4o-mini"),
+    "ChatGPT": OpenAI(api_key=os.getenv("OPENAI_API_KEY")),
     # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
-    "Claude": ChatGoogleGenerativeAI(model="models/gemini-exp-1206"),
-    "Gemini": ChatGoogleGenerativeAI(model="models/gemini-exp-1206"),
+    "Claude": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
+    "Gemini": Gemini(api_key=os.getenv("GOOGLE_API_KEY")),
     # "Groq": Groq(model="llama3-70b-8192", api_key=os.getenv("xai-fwJaNgak7lu7IZOZVrlTeqtn8WtJ2zV47VLvoK6fedx3b6VZnu9vUCKzz3i3zRisqCN0W2yTtzFtHfrb")),
 }
 
 async def process_llm(request: SingleLlmRequest) -> LlmResponse:
     start_time = time.time()
     llm_client = llms[request.llm_name]
-    response = await llm_client.ainvoke(request.prompt)
-    response_text = response.content if hasattr(response, 'content') else str(response)
+    response = await llm_client.acomplete(request.prompt)
+    response_text = response.text if hasattr(response, 'text') else str(response)
     end_time = time.time()
     return LlmResponse(
         llm_name=request.llm_name,
@@ -255,31 +214,37 @@ async def flow():
         }), 500
 
 @app.post("/")
-async def query_llm():   
-    #return await llm_call()
+async def query_llm():
     """
-    Query the specified LLM with a given prompt and return the response as a structured object.
+    Query the specified LLM with a given prompt and return the response as a string.
     """
-    data = await request.get_json()
+    data = await request.json
+    llm_name = data.get("llm_name")
+    prompt = data.get("prompt")
+
+    # Check if the specified LLM is supported
+    if llm_name not in llms:
+        return jsonify({
+            "error": f"LLM '{llm_name}' not supported. Available: {list(llms.keys())}"
+        }), 400
+
+    # Get the corresponding LLM client
+    llm_client = llms[llm_name]
+
+    # Query the LLM asynchronously
     try:
-        # Validate and parse the incoming JSON using SingleLlmRequest
-        llm_request = SingleLlmRequest(**data)
-
-        # Check if the specified LLM is supported
-        if llm_request.llm_name not in llms:
-            return jsonify({
-                "error": f"LLM '{llm_request.llm_name}' not supported. Available: {list(llms.keys())}"
-            }), 400
-
-        # Use the llm helper function to process the request
-        llm_response = await process_llm(llm_request)
-        return jsonify(llm_response.model_dump())
-
+        response = await llm_client.acomplete(prompt)
+        response_text = response.text if hasattr(response, 'text') else str(response)
+        return jsonify({
+            "llm": llm_name,
+            "response": response_text,
+            "timestamp": datetime.now().isoformat(),
+            "status": "completed"
+        })
     except Exception as e:
         return jsonify({
-            "error": f"Error processing request: {str(e)}"
+            "error": f"Error querying {llm_name}: {str(e)}"
         }), 500
-
     
 @app.post("/llm")
 async def llm_call():
@@ -299,7 +264,7 @@ async def llm_call():
 
         # Use the llm helper function to process the request
         llm_response = await process_llm(llm_request)
-        return jsonify(llm_response.model_dump())
+        return jsonify(llm_response.dict())
 
     except Exception as e:
         return jsonify({
