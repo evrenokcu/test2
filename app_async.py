@@ -50,24 +50,24 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 os.environ["GRPC_VERBOSITY"] = "ERROR"
 os.environ["GRPC_TRACE"] = ""
 
-def is_running_in_container() -> bool:
-    try:
-        with open("/proc/self/cgroup", "r") as f:
-            for line in f:
-                if "docker" in line or "containerd" in line:
-                    return True
-    except FileNotFoundError:
-        return False
-    return False
+# def is_running_in_container() -> bool:
+#     try:
+#         with open("/proc/self/cgroup", "r") as f:
+#             for line in f:
+#                 if "docker" in line or "containerd" in line:
+#                     return True
+#     except FileNotFoundError:
+#         return False
+#     return False
 
-# if is_running_in_container():
-#         print("The app is running inside a container.")
+if is_running_in_container():
+        print("The app is running inside a container.")
         
-# else:
-#         print("The app is not running inside a container.")
-#         env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
-#         load_dotenv(dotenv_path=env_path)
-#         os.environ["PORT"] = "8000"
+else:
+        print("The app is not running inside a container.")
+        env_path = os.path.abspath(os.path.join(os.path.dirname(__file__), "../.env"))
+        load_dotenv(dotenv_path=env_path)
+        os.environ["PORT"] = "8000"
 
 # Initialize Quart
 app = Quart(__name__)
@@ -111,8 +111,8 @@ llms = {
     #llm2 = 
 ##llm = ChatGoogleGenerativeAI(model='claude-3-opus-20240229')
  
-    #"ChatGPT": ChatOpenAI(model_name="gpt-4"),
-    "ChatGPT": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
+    "ChatGPT": ChatOpenAI(model_name="gpt-4"),
+    #"ChatGPT": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
     # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Claude": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
     "Gemini": ChatGoogleGenerativeAI(model="models/gemini-exp-1121"),
