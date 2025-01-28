@@ -111,7 +111,8 @@ llms = {
     #llm2 = 
 ##llm = ChatGoogleGenerativeAI(model='claude-3-opus-20240229')
  
-    "ChatGPT": ChatOpenAI(model_name="gpt-4"),
+    #"ChatGPT": ChatOpenAI(model_name="gpt-4"),
+    "ChatGPT": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
     # "Claude": Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY")),
     "Claude": ChatGoogleGenerativeAI(model="models/gemini-1.5-flash"),
     "Gemini": ChatGoogleGenerativeAI(model="models/gemini-exp-1121"),
